@@ -19,7 +19,9 @@ class App extends Component {
       <div className="App">
       <Title content="Scoreboard" />
       <ul>
-      {players.map((player, index) => <Player key={index} { ...player } />)}
+      {players.map((player, index) =>
+        <Player key={index} { ...player } />)
+      }
       </ul>
       </div>
   )
