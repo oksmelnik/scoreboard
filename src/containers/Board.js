@@ -1,9 +1,14 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import Title from '../components/Title'
-import Player from '../components/Player'
+import Player, { playerShape } from '../components/Player'
 import './Board.css'
 
 export default class Board extends PureComponent {
+  static propTypes = {
+    players: PropTypes.arrayOf(playerShape).isRequired,
+    updatePlayer: PropTypes.func.isRequired
+  }
 
 newArray(array) {
   let newa = array.slice(0)
@@ -14,16 +19,18 @@ newArray(array) {
 }
 
   render() {
-    const { players } = this.props
+    const { players, updatePlayer } = this.props
     let playersSorted = this.newArray(players)
 
     return (
       <div>
         <Title content="Scoreboard" />
         <ul className="Board">
-          {
-            playersSorted.map((player, index) => (
-              <Player key={index} { ...player } />
+          {playersSorted
+            .map((player, index) => (
+              <Player key={index}
+              onChange={updatePlayer}
+              { ...player } />
             ))
           }
         </ul>
