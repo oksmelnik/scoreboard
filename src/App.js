@@ -17,12 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Title content="Scoreboard" />
-      <ul>
-      {players.map((player, index) =>
-        <Player key={index} { ...player } />)
-      }
-      </ul>
+      <Board players={players} />
       </div>
   )
 }
