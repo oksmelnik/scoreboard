@@ -3,6 +3,7 @@ import Title from './components/Title'
 import './App.css'
 import Player from './components/Player'
 import Board from './containers/Board'
+import Podium from './containers/Podium'
 
 export const players = [
   { id: 1, name: 'Arno', score: 4 },
@@ -29,6 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+    
       <Board players={this.state.players}
       updatePlayer={this.updatePlayer}
       />

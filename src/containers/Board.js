@@ -4,6 +4,8 @@ import Title from '../components/Title'
 import Player, { playerShape } from '../components/Player'
 import './Board.css'
 
+import Trophy from '../components/Trophy'
+
 export default class Board extends PureComponent {
   static propTypes = {
     players: PropTypes.arrayOf(playerShape).isRequired,
@@ -25,6 +27,7 @@ newArray(array) {
     return (
       <div>
         <Title content="Scoreboard" />
+
         <ul className="Board">
           {playersSorted
             .map((player, index) => (
